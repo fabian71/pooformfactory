@@ -11,15 +11,10 @@ class GeraForm implements FormInterface
 	private $formElemment;
 	private $metodo;
 
-	public function __construct($di)
+	public function __construct($validator)
 	{
-		$this->di = $di;
+		$this->validator = $validator;
 	}
-
-	public function getDi()
-    {
-        return $this->di;
-    }
 
 	public function setMetodo($metodo)
 	{

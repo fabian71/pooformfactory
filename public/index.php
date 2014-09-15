@@ -11,9 +11,10 @@ spl_autoload_register();
 
 $di = require '../scripts/instance.php';
 $di->set('request',new \FABIANO\Form\Request());
-$di->set('validator',new \FABIANO\Form\Validator());
 
-$form = new \FABIANO\Form\GeraForm($di);
+$validator = new \FABIANO\Form\Validator($di);
+
+$form = new \FABIANO\Form\GeraForm($validator);
 
 $form->setAction('mailto:teste@teste.com');
 $form->setMetodo('GET');
