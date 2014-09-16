@@ -1,9 +1,9 @@
 <?php
 namespace FABIANO\Form;
 
-class InputTextFactory extends AbstractFActory
+class InputTextFactory extends AbstractFactory
 {
-	public function createField()
+	public function newField()
 	{
 		return new \FABIANO\Form\Tipo\InputText();
 	}

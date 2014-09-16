@@ -2,7 +2,9 @@
 
 namespace FABIANO\Form;
 
+use FABIANO\Form;
 use FABIANO\Form\InterfaceForm\FormInterface;
+use FABIANO\Form\InterfaceForm\ElementInterface;
 
 class GeraForm implements FormInterface
 {
@@ -11,7 +13,7 @@ class GeraForm implements FormInterface
 	private $formElemment;
 	private $metodo;
 
-	public function __construct($validator)
+	public function __construct(Validator $validator)
 	{
 		$this->validator = $validator;
 	}
@@ -28,7 +30,8 @@ class GeraForm implements FormInterface
 		return $this;
 	}
 
-	public function addField($item)
+
+	public function createField(ElementInterface $item)
 	{
 		$this->item[] = $item;
 		return $this;

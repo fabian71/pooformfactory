@@ -4,5 +4,5 @@ namespace FABIANO\Form;
 
 abstract class AbstractFactory
 {
-	abstract function createField(); 	
+	abstract function newField(); 	
 }

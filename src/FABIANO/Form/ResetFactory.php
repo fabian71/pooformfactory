@@ -3,7 +3,7 @@ namespace FABIANO\Form;
 
 class ResetFactory extends AbstractFActory
 {
-	public function createField()
+	public function newField()
 	{
 		return new \FABIANO\Form\Tipo\ResetForm();
 	}

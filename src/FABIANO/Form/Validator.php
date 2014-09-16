@@ -4,7 +4,7 @@ namespace FABIANO\Form;
 
 class Validator
 {
-	public function __construct($di)
+	public function __construct(Request $di)
 	{
 		$this->di = $di;
 	}

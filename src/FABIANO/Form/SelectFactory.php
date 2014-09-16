@@ -3,7 +3,7 @@ namespace FABIANO\Form;
 
 class SelectFactory extends AbstractFActory
 {
-	public function createField()
+	public function newField()
 	{
 		return new \FABIANO\Form\Tipo\Select();
 	}

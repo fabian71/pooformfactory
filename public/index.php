@@ -9,10 +9,12 @@ define('CLASS_DIR','../src/');
 set_include_path(get_include_path().PATH_SEPARATOR.CLASS_DIR);
 spl_autoload_register();
 
-$di = require '../scripts/instance.php';
-$di->set('request',new \FABIANO\Form\Request());
+//$di = require '../scripts/instance.php';
+//$di->set('request',new \FABIANO\Form\Request());
 
-$validator = new \FABIANO\Form\Validator($di);
+$request = new \FABIANO\Form\Request();
+
+$validator = new \FABIANO\Form\Validator($request);
 
 $form = new \FABIANO\Form\GeraForm($validator);
 
@@ -20,57 +22,57 @@ $form->setAction('mailto:teste@teste.com');
 $form->setMetodo('GET');
 
 $campoLabel = new \FABIANO\Form\LabelFactory();
-$campo = $campoLabel->createField();
+$campo = $campoLabel->newField();
 $campo->setLabel('Nome')
       ->setStyle('display:block');
-$form->addField($campo);
+$form->createField($campo);
 
 $campoNome = new \FABIANO\Form\InputTextFactory();
-$campo = $campoNome->createField();
+$campo = $campoNome->newField();
 $campo->setType('text')
 	  ->setId('nome')
 	  ->setPlaceholder('seu nome');
-$form->addField($campo);
+$form->createField($campo);
 
 $campoLabel = new \FABIANO\Form\LabelFactory();
-$campo = $campoLabel->createField();
+$campo = $campoLabel->newField();
 $campo->setLabel('Email')
 	  ->setStyle('display:block');
-$form->addField($campo);
+$form->createField($campo);
 
 $campoEmail = new \FABIANO\Form\InputTextFactory();
-$campo = $campoEmail->createField();
+$campo = $campoEmail->newField();
 $campo->setType('text')
 	  ->setId('email')
 	  ->setPlaceholder('seu email');
-$form->addField($campo);
+$form->createField($campo);
 
 $campoLabel = new \FABIANO\Form\LabelFactory();
-$campo = $campoLabel->createField();
+$campo = $campoLabel->newField();
 $campo->setLabel('Estado')
 	  ->setStyle('display:block');
-$form->addField($campo);
+$form->createField($campo);
 
 $campoEstado = new \FABIANO\Form\SelectFactory();
-$campo = $campoEstado->createField();
+$campo = $campoEstado->newField();
 $campo->setId('estado')
 	  ->setOption(array("pr" => "Parana", "sc" => "Santa Catarina", "sp" => "Sao Paulo"))
 	  ->setSelected('sp')
 	  ->setName('Estados');
-$form->addField($campo);	  
+$form->createField($campo);	  
 
 $campoSubmit = new \FABIANO\Form\SubmitFactory();
-$campo = $campoSubmit->createField();
+$campo = $campoSubmit->newField();
 $campo->setType('submit')
 	  ->setValue('Enviar formulário')
 	  ->setStyle('display:block; clear:both; margin:10px 0 0 0');
-$form->addField($campo);
+$form->createField($campo);
 
 $campoReset = new \FABIANO\Form\ResetFactory();
-$campo = $campoReset->createField();
+$campo = $campoReset->newField();
 $campo->setType('reset')
 	  ->setValue('Apagar')
 	  ->setStyle('display:block; clear:both; margin:10px 0 0 0');
-$form->addField($campo);
+$form->createField($campo);
 
 $form->render();
